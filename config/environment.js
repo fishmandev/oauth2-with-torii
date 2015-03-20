@@ -2,6 +2,14 @@
 
 module.exports = function(environment) {
   var ENV = {
+    contentSecurityPolicy: {
+      'default-src': "*",
+      'script-src': "*",
+      'connect-src': "*",
+      'img-src': "*",
+      'style-src': "* 'unsafe-inline'",
+      'report-uri': "*"
+    },
     modulePrefix: 'auth',
     environment: environment,
     baseURL: '/',
@@ -10,6 +18,17 @@ module.exports = function(environment) {
       FEATURES: {
         // Here you can enable experimental features on an ember canary build
         // e.g. 'with-controller': true
+      }
+    },
+
+    torii: {
+      // a 'session' property will be injected on routes and controllers
+      sessionServiceName: 'session1',
+      providers: {
+        'facebook-connect': {
+          appId:      '900159813360168',
+          scope: 'email,user_birthday'
+        }
       }
     },
 
@@ -24,7 +43,7 @@ module.exports = function(environment) {
   };
 
   ENV['simple-auth-oauth2'] = {
-    serverTokenEndpoint: 'http://path.com/to/your/access_token/end_point'
+    serverTokenEndpoint: '/api/auth'
   };
 
   if (environment === 'development') {

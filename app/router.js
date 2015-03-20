@@ -9,6 +9,7 @@ Router.map(function() {
   this.route('application');
   this.route('protected');
   this.route('login');
+  this.route('fb');
 });
 
 export default Router;
