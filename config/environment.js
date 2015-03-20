@@ -19,6 +19,14 @@ module.exports = function(environment) {
     }
   };
 
+  ENV['simple-auth'] = {
+    authorizer: 'simple-auth-authorizer:oauth2-bearer'
+  };
+
+  ENV['simple-auth-oauth2'] = {
+    serverTokenEndpoint: 'http://path.com/to/your/access_token/end_point'
+  };
+
   if (environment === 'development') {
     // ENV.APP.LOG_RESOLVER = true;
     // ENV.APP.LOG_ACTIVE_GENERATION = true;
